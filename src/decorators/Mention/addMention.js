@@ -10,6 +10,7 @@ export default function addMention(
   separator: string,
   trigger: string,
   suggestion: Object,
+  atTheEnd: string,
 ): void {
   const { value, url } = suggestion;
   const entityKey = editorState
@@ -52,7 +53,7 @@ export default function addMention(
     contentState = Modifier.insertText(
       newEditorState.getCurrentContent(),
       updatedSelection,
-      ' ',
+      (atTheEnd) ? atTheEnd : ' ',
       newEditorState.getCurrentInlineStyle(),
       undefined,
     );

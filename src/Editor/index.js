@@ -82,7 +82,8 @@ export default class WysiwygEditor extends Component {
     customBlockRenderFunc: PropTypes.func,
     wrapperId: PropTypes.number,
     customDecorators: PropTypes.array,
-    editorRef: PropTypes.func
+    editorRef: PropTypes.func,
+    atTheEnd: PropTypes.string,
   };
 
   static defaultProps = {
@@ -277,7 +278,8 @@ export default class WysiwygEditor extends Component {
           getEditorState: this.getEditorState,
           getSuggestions: this.getSuggestions,
           getWrapperRef: this.getWrapperRef,
-          modalHandler: this.modalHandler
+          modalHandler: this.modalHandler,
+          getAtTheEnd: this.getAtTheEnd,
         })
       );
     }
@@ -292,6 +294,8 @@ export default class WysiwygEditor extends Component {
   getEditorState = () => this.state.editorState;
 
   getSuggestions = () => this.props.mention && this.props.mention.suggestions;
+
+  getAtTheEnd = () => this.props.atTheEnd;
 
   afterChange: Function = (editorState): void => {
     setTimeout(() => {

@@ -19,6 +19,7 @@ class Suggestion {
       dropdownClassName,
       optionClassName,
       modalHandler,
+      atTheEnd
     } = config;
     this.config = {
       separator,
@@ -31,6 +32,7 @@ class Suggestion {
       dropdownClassName,
       optionClassName,
       modalHandler,
+      atTheEnd
     };
   }
 
@@ -207,10 +209,10 @@ function getSuggestionComponent() {
     addMention = () => {
       const { activeOption } = this.state;
       const editorState = config.getEditorState();
-      const { onChange, separator, trigger } = config;
+      const { onChange, separator, trigger, atTheEnd } = config;
       const selectedMention = this.filteredSuggestions[activeOption];
       if (selectedMention) {
-        addMention(editorState, onChange, separator, trigger, selectedMention);
+        addMention(editorState, onChange, separator, trigger, selectedMention, atTheEnd);
       }
     }
 
