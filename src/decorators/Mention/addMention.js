@@ -37,7 +37,8 @@ export default function addMention(
     updatedSelection,
     `${trigger}${value}`,
     newEditorState.getCurrentInlineStyle(),
-    entityKey,
+    // entityKey,
+    undefined
   );
   newEditorState = EditorState.push(newEditorState, contentState, 'insert-characters');
 
